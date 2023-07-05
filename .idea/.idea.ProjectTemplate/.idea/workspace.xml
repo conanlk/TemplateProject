@@ -13,8 +13,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c5d84c50-8041-4444-99fa-6c4ddde41c9e" name="Changes" comment="First commit">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="c5d84c50-8041-4444-99fa-6c4ddde41c9e" name="Changes" comment="Commit source code Project Template">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectTemplate/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectTemplate/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +46,9 @@
     <setting file="file://$PROJECT_DIR$/../../Projects/tomx/Tomsoft.Tom.Core/Extensions/Json.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Projects/tomx/Tomsoft.Tom.Web/Modules/Global/Account/AccountController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Projects/tomx/Tomsoft.Tom.Web/Modules/Global/Authentication/AuthenticationController.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProblemsViewState">
@@ -226,7 +229,7 @@
       <workItem from="1688204698686" duration="554000" />
       <workItem from="1688205709859" duration="653000" />
       <workItem from="1688206375091" duration="63176000" />
-      <workItem from="1688553835148" duration="4146000" />
+      <workItem from="1688553835148" duration="4799000" />
     </task>
     <task id="LOCAL-00001" summary="First commit for Template Project">
       <option name="closed" value="true" />
@@ -252,7 +255,15 @@
       <option name="project" value="LOCAL" />
       <updated>1688556458746</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Commit source code Project Template">
+      <option name="closed" value="true" />
+      <created>1688558027923</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1688558027923</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -298,6 +309,7 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="First commit for Template Project" />
     <MESSAGE value="First commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="First commit" />
+    <MESSAGE value="Commit source code Project Template" />
+    <option name="LAST_COMMIT_MESSAGE" value="Commit source code Project Template" />
   </component>
 </project>
