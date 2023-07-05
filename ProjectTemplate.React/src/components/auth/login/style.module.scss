@@ -1,0 +1,94 @@
+@import 'mixins.scss';
+
+//////////////////////////////////////////////////////////////////////////////////////////
+/* AUTH */
+
+.container {
+  max-width: rem(450);
+  min-width: rem(450);
+  padding: rem(40);
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 12px;
+
+  @media (max-width: $md-max-width) {
+    min-width: rem(380);
+    padding: rem(40);
+  }
+}
+
+.logo {
+  margin-bottom: rem(5);
+
+  svg {
+    margin-right: rem(6);
+    height: rem(48);
+    width: rem(48);
+    path:nth-child(1) {
+      stroke: $primary;
+      fill: $primary;
+      stroke-width: 1px;
+      animation: logoAnimate 6s ease-in-out infinite;
+    }
+    path:nth-child(2) {
+      stroke: $primary;
+      fill: $primary;
+      stroke-width: 1px;
+      animation: logoAnimate 6s ease-in-out infinite;
+      animation-delay: 2s;
+    }
+    path:nth-child(3) {
+      stroke: $primary;
+      fill: $primary;
+      stroke-width: 1px;
+      animation: logoAnimate 6s ease-in-out infinite;
+      animation-delay: 4s;
+    }
+
+    @keyframes logoAnimate {
+      0% {
+        stroke: $primary;
+        fill: $primary;
+      }
+      50% {
+        stroke: #1ad697;
+        fill: #1ad697;
+      }
+      100% {
+        stroke: $primary;
+        fill: $primary;
+      }
+    }
+  }
+}
+
+.mainLogo {
+  color: $black;
+  margin-right: rem(10);
+}
+
+.version {
+  position: relative;
+  top: -3px;
+  display: inline-block;
+  line-height: rem(35);
+  height: rem(35);
+  font-size: 70%;
+  background: $black;
+  border-radius: 8px;
+  color: $white;
+  padding: 0 rem(10);
+  text-transform: capitalize;
+}
+
+// dark theme
+[data-vb-theme='dark'] {
+  .mainLogo {
+    color: $white;
+  }
+
+  .version {
+    background: $dark-gray-4;
+    color: $dark-gray-1;
+  }
+}

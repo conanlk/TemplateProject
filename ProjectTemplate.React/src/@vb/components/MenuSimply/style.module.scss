@@ -1,0 +1,113 @@
+@import 'mixins.scss';
+
+.menuSimply {
+  min-height: rem(64);
+  padding: rem(5) rem(20);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: nowrap;
+  background: $dark-gray-6;
+  border-bottom: 1px solid $border;
+
+  &__logo {
+    display: block;
+    padding-top: rem(15);
+    padding-bottom: rem(15);
+    margin-right: rem(30);
+    line-height: 1;
+    height: rem(64);
+    white-space: nowrap;
+
+    &__letter {
+      float: left;
+
+      svg {
+        margin-right: rem(6);
+        height: rem(30);
+        width: rem(30);
+        path:nth-child(1) {
+          stroke: $primary;
+          fill: $primary;
+          stroke-width: 1px;
+          animation: logoAnimate 6s ease-in-out infinite;
+        }
+        path:nth-child(2) {
+          stroke: $primary;
+          fill: $primary;
+          stroke-width: 1px;
+          animation: logoAnimate 6s ease-in-out infinite;
+          animation-delay: 2s;
+        }
+        path:nth-child(3) {
+          stroke: $primary;
+          fill: $primary;
+          stroke-width: 1px;
+          animation: logoAnimate 6s ease-in-out infinite;
+          animation-delay: 4s;
+        }
+
+        @keyframes logoAnimate {
+          0% {
+            stroke: $primary;
+            fill: $primary;
+          }
+          50% {
+            stroke: #1ad697;
+            fill: #1ad697;
+          }
+          100% {
+            stroke: $primary;
+            fill: $primary;
+          }
+        }
+      }
+    }
+    &__name {
+      font-weight: 700;
+      color: $white;
+      font-size: rem(18);
+      margin-left: rem(40);
+    }
+    &__descr {
+      color: $gray-4;
+      margin-left: rem(40);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+  }
+
+  // white theme
+  &__white {
+    background: $white;
+
+    .menuSimply {
+      &__logo {
+        &__name {
+          color: $dark;
+        }
+      }
+    }
+  }
+
+  // white theme
+  &__gray {
+    background: $gray-1;
+
+    .menuSimply {
+      &__logo {
+        &__name {
+          color: $dark;
+        }
+      }
+    }
+  }
+}
+
+// dark theme
+[data-vb-theme='dark'] {
+  .menuSimply {
+    border-color: $dark-gray-4;
+  }
+}

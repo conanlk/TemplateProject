@@ -1,0 +1,126 @@
+@import 'mixins.scss';
+
+.outer {
+  background: $gray-1;
+}
+
+.bottom {
+  background: lighten($gray-1, 2%);
+}
+
+.container {
+  max-width: rem(1280);
+  padding: 0 rem(30);
+  margin: 0 auto;
+}
+
+.footerFullWidth {
+  max-width: none;
+}
+
+.logo {
+  line-height: 1;
+  white-space: nowrap;
+
+  &__letter {
+    float: left;
+
+    svg {
+      position: relative;
+      top: 3px;
+      margin-right: rem(6);
+      height: rem(30);
+      width: rem(30);
+      path:nth-child(1) {
+        stroke: $primary;
+        fill: $primary;
+        stroke-width: 1px;
+        animation: logoAnimate 6s ease-in-out infinite;
+      }
+      path:nth-child(2) {
+        stroke: $primary;
+        fill: $primary;
+        stroke-width: 1px;
+        animation: logoAnimate 6s ease-in-out infinite;
+        animation-delay: 2s;
+      }
+      path:nth-child(3) {
+        stroke: $primary;
+        fill: $primary;
+        stroke-width: 1px;
+        animation: logoAnimate 6s ease-in-out infinite;
+        animation-delay: 4s;
+      }
+
+      @keyframes logoAnimate {
+        0% {
+          stroke: $primary;
+          fill: $primary;
+        }
+        50% {
+          stroke: #1ad697;
+          fill: #1ad697;
+        }
+        100% {
+          stroke: $primary;
+          fill: $primary;
+        }
+      }
+    }
+  }
+
+  &__name {
+    font-weight: 700;
+    color: $dark;
+    font-size: rem(18);
+    margin-left: rem(40);
+    margin-top: rem(4);
+  }
+
+  &__descr {
+    color: $gray-4;
+    margin-left: rem(40);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+}
+
+.input {
+  background: $white;
+  border-color: $border;
+  color: $dark-gray-1;
+  @include transition-fast();
+
+  &:hover,
+  &:focus {
+    border-color: $blue;
+  }
+}
+
+// dark theme
+[data-vb-theme='dark'] {
+  .outer {
+    background: $dark-gray-6;
+    color: $dark-gray-1;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: $white;
+    }
+  }
+
+  .bottom {
+    background: $black;
+  }
+
+  .logo {
+    &__name {
+      color: $white;
+    }
+  }
+}

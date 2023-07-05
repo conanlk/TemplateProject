@@ -1,0 +1,47 @@
+@import 'mixins.scss';
+
+.footer {
+  margin: 0 auto;
+  padding: 0 rem(30) rem(30);
+
+  @media (max-width: $sm-max-width) {
+    padding: 0 rem(16) !important;
+  }
+}
+
+.footerInner {
+  border-top: 1px solid $border;
+  padding-top: rem(30);
+}
+
+.logo {
+  color: $black;
+  font-size: rem(15);
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: 700;
+
+  svg {
+    position: relative;
+    top: 3px;
+    margin-right: rem(6);
+    height: rem(16);
+    width: rem(16);
+    path:nth-child(1) {
+      stroke: $primary;
+      fill: $primary;
+      stroke-width: 1px;
+    }
+  }
+}
+
+// dark theme
+[data-vb-theme='dark'] {
+  .footer {
+    color: $dark-gray-1;
+  }
+
+  .footerInner {
+    border-top: 1px solid $dark-gray-4;
+  }
+}

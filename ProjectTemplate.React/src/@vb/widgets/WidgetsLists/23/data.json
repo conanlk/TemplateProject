@@ -1,0 +1,24 @@
+[
+  {
+    "key": "1",
+    "name": "Inbox",
+    "count": 21
+  },
+  {
+    "key": "2",
+    "name": "Snoozed"
+  },
+  {
+    "key": "3",
+    "name": "Sent",
+    "count": 7
+  },
+  {
+    "key": "4",
+    "name": "Drafts"
+  },
+  {
+    "key": "5",
+    "name": "Spam"
+  }
+]

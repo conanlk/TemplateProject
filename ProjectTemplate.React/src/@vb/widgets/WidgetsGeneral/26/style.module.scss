@@ -1,0 +1,102 @@
+@import 'mixins.scss';
+
+.container {
+  max-width: rem(440);
+}
+
+.head {
+  background: $gray-1;
+  padding: rem(8) rem(15);
+  margin: 0 0 rem(10);
+  border-radius: 6px;
+
+  h4 {
+    margin-bottom: 0;
+    font-weight: bold;
+  }
+}
+
+.item {
+  margin-bottom: rem(10);
+  display: block;
+  position: relative;
+
+  .close {
+    position: absolute;
+    bottom: rem(5);
+    right: 0;
+    opacity: 0.4;
+    @include transition-slow();
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  .image {
+    width: rem(80);
+    height: rem(80);
+    text-align: center;
+    overflow: hidden;
+    border: 2px solid $gray-1;
+    border-radius: 6px;
+    float: left;
+    background: $white;
+
+    img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+
+  .info {
+    margin-left: rem(100);
+
+    .title {
+      font-weight: bold;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      color: $dark;
+      @include transition-slow();
+    }
+
+    .description {
+      margin-bottom: rem(5);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
+  &:hover {
+    .info {
+      .title {
+        color: $primary;
+      }
+    }
+  }
+}
+
+.footer {
+  i {
+    margin-left: rem(-6);
+    margin-right: rem(8);
+    opacity: 0.6;
+    position: relative;
+    top: 1px;
+  }
+}
+
+// dark theme
+[data-vb-theme='dark'] {
+  .head {
+    background-color: $dark-gray-4;
+  }
+
+  .item {
+    .title {
+      color: $white;
+    }
+  }
+}

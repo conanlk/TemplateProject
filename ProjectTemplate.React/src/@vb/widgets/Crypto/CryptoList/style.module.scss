@@ -1,0 +1,71 @@
+@import 'mixins.scss';
+
+.listItem {
+  display: block;
+  background: $gray-1;
+  padding: rem(10) rem(20);
+  margin-bottom: rem(10);
+  border-radius: 5px;
+  color: $black;
+  transition: all 0.1s ease-in-out;
+
+  @at-root {
+    :global(.cui__layout__grayBackground) & {
+      background: $white;
+    }
+  }
+
+  &:hover {
+    background: $primary;
+    color: $white;
+    .listPercents {
+      span {
+        color: $white !important;
+      }
+    }
+  }
+
+  &:after {
+    clear: both;
+    content: '';
+    display: block;
+  }
+}
+
+.listItemNegative {
+  .listPercents {
+    span {
+      color: #f75535;
+      &:after {
+        content: ' ↓';
+        font-family: monospace;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.listCurrency {
+  float: left;
+  span {
+    display: block;
+    font-weight: bold;
+  }
+}
+
+.listPercents {
+  float: right;
+  text-align: right;
+  span {
+    display: block;
+    font-weight: bold;
+    color: #00a45b;
+    transition: all 0.1s ease-in-out;
+
+    &:after {
+      content: ' ↑';
+      font-family: monospace;
+      font-weight: bold;
+    }
+  }
+}

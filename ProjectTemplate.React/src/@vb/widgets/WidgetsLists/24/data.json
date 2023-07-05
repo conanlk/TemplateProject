@@ -1,0 +1,24 @@
+[
+  {
+    "key": "1",
+    "name": "Today",
+    "count": 21
+  },
+  {
+    "key": "2",
+    "name": "Next 7 days"
+  },
+  {
+    "key": "3",
+    "name": "Welcome 👋"
+  },
+  {
+    "key": "4",
+    "name": "Homework",
+    "count": 1
+  },
+  {
+    "key": "5",
+    "name": "Fitness"
+  }
+]

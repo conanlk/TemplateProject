@@ -1,0 +1,17 @@
+@import 'mixins.scss';
+
+.wrapper {
+  pointer-events: none;
+
+  :global(.ant-modal-content) {
+    pointer-events: all;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+}
+
+.button {
+  border-radius: 10px !important;
+  margin-right: rem(10);
+  margin-bottom: rem(10);
+}

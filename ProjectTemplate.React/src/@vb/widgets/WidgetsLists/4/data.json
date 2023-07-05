@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Jamie Rockstar",
+    "position": "Backoffice Agent",
+    "avatar": "resources/images/avatars/1.jpg",
+    "active": true,
+    "text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ..."
+  },
+  {
+    "name": "Alex Kasie",
+    "position": "Support Agent",
+    "avatar": "resources/images/avatars/2.jpg",
+    "active": false,
+    "text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ..."
+  },
+  {
+    "name": "David Lynch",
+    "position": "Support Agent",
+    "avatar": "resources/images/avatars/4.jpg",
+    "active": true,
+    "text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ..."
+  }
+]

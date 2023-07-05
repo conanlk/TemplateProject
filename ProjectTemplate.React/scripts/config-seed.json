@@ -1,0 +1,13 @@
+{
+  "vb": "1.0.0",
+  "timestamp": 1610107454880,
+  "config": [
+    {
+      "key": "__dashboard",
+      "title": "Dashboard",
+      "url": "/dashboard",
+      "icon": "fe fe-home"
+    }
+  ],
+  "content": {}
+}

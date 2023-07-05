@@ -1,0 +1,10 @@
+name = "visual-builder-react-cra"
+type = "webpack"
+account_id = "792461088a4c863230f3faee467094b1"
+# workers_dev = true
+route = "react.visualbuilder.cloud/*"
+zone_id = "3098985d50eb34908b966db14245a73e"
+
+[site]
+bucket = "../build"
+entry-point = "workers-site"
