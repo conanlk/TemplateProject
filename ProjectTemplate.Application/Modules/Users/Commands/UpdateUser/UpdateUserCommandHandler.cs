@@ -19,6 +19,7 @@ public class UpdateUserCommandHandler: IRequestHandler<UpdateUserCommandRequest,
         user.FirstName = commandRequest.FirstName;
         user.LastName = commandRequest.LastName;
         user.Email = commandRequest.Email;
+        user.Phone = commandRequest.Phone;
         user.UserRoles.Clear();
         foreach (var roleId in commandRequest.Roles)
         {

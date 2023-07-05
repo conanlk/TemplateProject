@@ -29,6 +29,7 @@ public class CreateUserCommandHandler : IRequestHandler<CreateUserCommandRequest
             FirstName = commandRequest.FirstName,
             LastName = commandRequest.LastName,
             Email = commandRequest.Email,
+            Phone = commandRequest.Phone,
         };
         user.UserRoles = commandRequest.Roles.Select(p => new UserRole()
         {

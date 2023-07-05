@@ -13,8 +13,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c5d84c50-8041-4444-99fa-6c4ddde41c9e" name="Changes" comment="Commit source code Project Template">
+    <list default="true" id="c5d84c50-8041-4444-99fa-6c4ddde41c9e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectTemplate/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectTemplate/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectTemplate.API/Controllers/AuthenticationController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectTemplate.API/Controllers/AuthenticationController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectTemplate.API/Models/Authentication/LoginReponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectTemplate.API/Models/Authentication/LoginReponse.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectTemplate.API/Models/User/SearchUserResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectTemplate.API/Models/User/SearchUserResponse.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectTemplate.API/Models/User/UpdateUserRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectTemplate.API/Models/User/UpdateUserRequest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectTemplate.API/Models/User/UserResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectTemplate.API/Models/User/UserResponse.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectTemplate.Application/Modules/Users/Commands/CreateUser/CreateUserCommandRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectTemplate.Application/Modules/Users/Commands/CreateUser/CreateUserCommandRequest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectTemplate.Application/Modules/Users/Commands/UpdateUser/UpdateUserCommandRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectTemplate.Application/Modules/Users/Commands/UpdateUser/UpdateUserCommandRequest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectTemplate.Database/Contexts/MigrationContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectTemplate.Database/Contexts/MigrationContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectTemplate.Database/Models/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectTemplate.Database/Models/User.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectTemplate.Entities/Models/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectTemplate.Entities/Models/User.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,11 +49,16 @@
     <setting file="file://$PROJECT_DIR$/../../Projects/tom-1.0-in2food/src/In2FoodSchedule.Core/Configuration/In2FoodScheduleSettings.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Projects/tom-1.0-in2food/src/In2FoodSchedule.Web/Controllers/ImportFileController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Projects/tom-1.0-in2food/src/In2FoodSchedule.Web/Startup.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../Projects/tomx/Tomsoft.Tom.Business/Constants.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Projects/tomx/Tomsoft.Tom.Business/Security/DummyHashService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Projects/tomx/Tomsoft.Tom.Business/Security/IHashService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Projects/tomx/Tomsoft.Tom.Core/Authentication/AuthorisationModule.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Projects/tomx/Tomsoft.Tom.Core/Email/EmailUtil.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Projects/tomx/Tomsoft.Tom.Core/Extensions/Json.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../Projects/tomx/Tomsoft.Tom.Core/Workflow/IWorkflowObject.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../Projects/tomx/Tomsoft.Tom.Core/Workflow/State.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../Projects/tomx/Tomsoft.Tom.Core/Workflow/WorkflowActionParameters.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../Projects/tomx/Tomsoft.Tom.Core/Workflow/WorkflowStateTypes.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Projects/tomx/Tomsoft.Tom.Web/Modules/Global/Account/AccountController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Projects/tomx/Tomsoft.Tom.Web/Modules/Global/Authentication/AuthenticationController.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -62,28 +77,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "/Users/aunguyen/Library/Application Support/JetBrains/Rider2023.1/resharper-host/DecompilerCache",
-      "/Users/aunguyen/Library/Application Support/JetBrains/Rider2023.1/resharper-host/SourcesCache",
-      "/Users/aunguyen/.local/share/Symbols/src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;/Users/aunguyen/Library/Application Support/JetBrains/Rider2023.1/resharper-host/DecompilerCache&quot;,
+      &quot;/Users/aunguyen/Library/Application Support/JetBrains/Rider2023.1/resharper-host/SourcesCache&quot;,
+      &quot;/Users/aunguyen/.local/share/Symbols/src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RiderProblemsViewState">
     <option name="showPreview" value="true" />
   </component>
@@ -229,7 +244,8 @@
       <workItem from="1688204698686" duration="554000" />
       <workItem from="1688205709859" duration="653000" />
       <workItem from="1688206375091" duration="63176000" />
-      <workItem from="1688553835148" duration="4799000" />
+      <workItem from="1688553835148" duration="5998000" />
+      <workItem from="1688562445272" duration="2055000" />
     </task>
     <task id="LOCAL-00001" summary="First commit for Template Project">
       <option name="closed" value="true" />
@@ -263,7 +279,15 @@
       <option name="project" value="LOCAL" />
       <updated>1688558027923</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Commit workspace.xml">
+      <option name="closed" value="true" />
+      <created>1688559624366</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1688559624366</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -310,6 +334,7 @@
     <MESSAGE value="First commit for Template Project" />
     <MESSAGE value="First commit" />
     <MESSAGE value="Commit source code Project Template" />
-    <option name="LAST_COMMIT_MESSAGE" value="Commit source code Project Template" />
+    <MESSAGE value="Commit workspace.xml" />
+    <option name="LAST_COMMIT_MESSAGE" value="Commit workspace.xml" />
   </component>
 </project>

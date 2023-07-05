@@ -24,4 +24,6 @@ public class User
     public string LastName { get; set; }
     [StringLength(255)] 
     public string Email { get; set; }
+    [StringLength(255)] 
+    public string Phone { get; set; }
 }
