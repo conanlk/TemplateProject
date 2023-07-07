@@ -30,16 +30,24 @@ public class UserController : ApiControllerBase
     
     // GET List
     [HttpGet]
-    public async Task<IActionResult> List([FromQuery]SearchUserRequest request)
+    public async Task<IActionResult> List(string keywords = "", int page= 1, int pageSize = 20)
     {
         if (!ModelState.IsValid) return BadRequest(ModelState);
         
         var query = new GetUsersQueryRequest()
         {
-            Keywords = request.Keywords
+            Keywords = keywords,
+            CurrentPage = page,
+            PageSize = pageSize,
         };
-        var users = await _mediator.Send(query);
-        return Ok(_mapper.Map<IEnumerable<SearchUserResponse>>(users));
+        
+        var result  = await _mediator.Send(query);
+        
+        return Ok(new 
+        {
+            Pagination = result.Item1,
+            Data = _mapper.Map<IEnumerable<SearchUserResponse>>(result.Item2)
+        });
     }
     
     // GET Single

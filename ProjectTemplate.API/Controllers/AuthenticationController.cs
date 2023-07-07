@@ -46,7 +46,7 @@ public class AuthenticationController : ApiControllerBase
     }
 
     
-    [Route("superadmin")]
+    [Route("super-admin")]
     [HttpPost]
     public async Task<IActionResult> SuperAdmin()
     {
@@ -54,9 +54,9 @@ public class AuthenticationController : ApiControllerBase
         {
             Keywords = string.Empty
         };
-        var users = await _mediator.Send(queryGetUsers);
+        var result = await _mediator.Send(queryGetUsers);
 
-        if (!users.Any())
+        if (result.Item1.TotalCount == 0)
         {
             var queryCreateUsers = new CreateUserCommandRequest()
             {

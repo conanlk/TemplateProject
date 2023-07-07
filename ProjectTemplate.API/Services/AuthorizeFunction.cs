@@ -23,8 +23,7 @@ public class AuthorizeFunctionFilter : IAuthorizationFilter
     }
     public void OnAuthorization(AuthorizationFilterContext context)
     {
-        var identity = context.HttpContext.User.Identity as ClaimsIdentity;
-        if (identity != null)
+        if (context.HttpContext.User.Identity is ClaimsIdentity identity)
         {
             IEnumerable<Claim> claims = identity.Claims; 
             if (!UserHasAccess(claims, _roles))
@@ -42,7 +41,7 @@ public class AuthorizeFunctionFilter : IAuthorizationFilter
         foreach (var s in roles.Split(';'))
         {
             var userRoles = JsonConvert.DeserializeObject<List<string>>(claims.SingleOrDefault(p => p.Type == "Roles").Value);
-            if (userRoles.Any(p => p == s)) return true;
+            if (userRoles != null && userRoles.Any(p => p == s)) return true;
         }
 
         return false;

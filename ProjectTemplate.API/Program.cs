@@ -17,6 +17,7 @@ using ProjectTemplate.Application.Modules.Users.Commands.UpdateUser;
 using ProjectTemplate.Application.Modules.Users.Queries.GetUser;
 using ProjectTemplate.Application.Modules.Users.Queries.GetUsers;
 using ProjectTemplate.Core.Configurations;
+using ProjectTemplate.Core.Types;
 using ProjectTemplate.Entities.Models;
 using ProjectTemplate.Entities.Repositories;
 using ProjectTemplate.InfraStructure.Contexts;
@@ -24,99 +25,8 @@ using ProjectTemplate.InfraStructure.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Configure Authentication and Authorization
-builder.Services.AddAuthentication(x =>
-{
-    x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-    x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-}).AddJwtBearer(o =>
-{
-    var key = Encoding.UTF8.GetBytes(builder.Configuration["Bearer:Key"]!);
-    o.SaveToken = true;
-    o.TokenValidationParameters = new TokenValidationParameters
-    {
-        ValidateIssuer = false,
-        ValidateAudience = false,
-        ValidateLifetime = true,
-        ValidateIssuerSigningKey = true,
-        ValidIssuer = builder.Configuration["Bearer:Issuer"],
-        ValidAudience = builder.Configuration["Bearer:Audience"],
-        IssuerSigningKey = new SymmetricSecurityKey(key)
-    };
-});
-
-builder.Services.AddSwaggerGen(c =>
-{
-    c.SwaggerDoc("v1", new OpenApiInfo { Title = "API Documentation", Version = "v1" });
-    c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-    {
-        Type = SecuritySchemeType.Http,
-        Scheme = "bearer",
-        BearerFormat = "JWT",
-        In = ParameterLocation.Header,
-        Description = "JWT Authorization header using the Bearer scheme",
-    });
-    c.AddSecurityRequirement(new OpenApiSecurityRequirement
-    {
-        {
-            new OpenApiSecurityScheme
-            {
-                Reference = new OpenApiReference { Type = ReferenceType.SecurityScheme, Id = "Bearer" }
-            },
-            new string[] { }
-        }
-    });
-});
-
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
-// Configure DbContext
-builder.Services.AddDbContext<MigrationContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("Default"), 
-        x => x.MigrationsAssembly("ProjectTemplate.API")));
-
-builder.Services.AddDbContext<DefaultDbContext>(options =>
-    options.UseLazyLoadingProxies().UseSqlServer(builder.Configuration.GetConnectionString("Default")));
-
-// Configure services
-builder.Services.AddScoped<IUserRepository, UserServices>();
-builder.Services.AddScoped<IAuthenticationServices, AuthenticationServices>();
-builder.Services.AddScoped<IEncryptServices, EncryptServices>();
-builder.Services.AddScoped<ITokenServices, TokenServices>();
-builder.Services.AddScoped<IRequestHandler<GetUsersQueryRequest, IEnumerable<User>>, GetUsersQueryHandler>();
-builder.Services.AddScoped<IRequestHandler<GetUserQueryRequest, User?>, GetUserQueryHandler>();
-builder.Services.AddScoped<IRequestHandler<CreateUserCommandRequest, Guid>, CreateUserCommandHandler>();
-builder.Services.AddScoped<IRequestHandler<UpdateUserCommandRequest, User>, UpdateUserCommandHandler>();
-builder.Services.AddScoped<IRequestHandler<DeleteUserCommandRequest, bool>, DeleteUserCommandHandler>();
-
-// Configure configuration
-builder.Services.Configure<BearerTokenConfiguration>(builder.Configuration.GetSection("Bearer"));
-
-// Configure Json
-builder.Services.AddControllers(options=> 
-        options.Filters.Add<ExceptionFilter>()
-    )
-    .AddNewtonsoftJson(options =>
-        options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
-    );
-
-// Configure Logger
-builder.Services.AddLogging(options =>
-    {
-        options.ClearProviders();
-        options.SetMinimumLevel(LogLevel.Trace);
-        options.AddNLog();
-    }
-);
-
-// Configure MediatR
-builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
-
-// Configure AutoMapper
-builder.Services.AddAutoMapper(typeof(MappingProfile).Assembly);
+// Configuration
+Configuration(builder.Services, builder.Configuration);
 
 var app = builder.Build();  
 
@@ -135,3 +45,106 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+// Configure
+
+void Configuration(IServiceCollection services, ConfigurationManager configuration)
+{
+    
+    // Configure Authentication and Authorization
+    services.AddAuthentication(x =>
+    {
+        x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+        x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    }).AddJwtBearer(o =>
+    {
+        var key = Encoding.UTF8.GetBytes(configuration["Bearer:Key"]!);
+        o.SaveToken = true;
+        o.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = false,
+            ValidateAudience = false,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            ValidIssuer = configuration["Bearer:Issuer"],
+            ValidAudience = configuration["Bearer:Audience"],
+            IssuerSigningKey = new SymmetricSecurityKey(key)
+        };
+    });
+
+    services.AddSwaggerGen(c =>
+    {
+        c.SwaggerDoc("v1", new OpenApiInfo { Title = "API Documentation", Version = "v1" });
+        c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+        {
+            Type = SecuritySchemeType.Http,
+            Scheme = "bearer",
+            BearerFormat = "JWT",
+            In = ParameterLocation.Header,
+            Description = "JWT Authorization header using the Bearer scheme",
+        });
+        c.AddSecurityRequirement(new OpenApiSecurityRequirement
+        {
+            {
+                new OpenApiSecurityScheme
+                {
+                    Reference = new OpenApiReference { Type = ReferenceType.SecurityScheme, Id = "Bearer" }
+                },
+                new string[] { }
+            }
+        });
+    });
+
+    services.AddControllers();
+    // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+    services.AddEndpointsApiExplorer();
+    services.AddSwaggerGen();
+
+    // Configure Migration DbContext
+    services.AddDbContext<MigrationContext>(options =>
+        options.UseSqlServer(configuration.GetConnectionString("Default"), 
+            x => x.MigrationsAssembly("ProjectTemplate.API")));
+    
+    // Configure Application DbContext
+    services.AddDbContext<DefaultDbContext>(options =>
+        options.UseLazyLoadingProxies().UseSqlServer(configuration.GetConnectionString("Default")));
+
+    // Configure services
+    services.AddScoped<IUserRepository, UserServices>();
+    services.AddScoped<IAuthenticationServices, AuthenticationServices>();
+    services.AddScoped<IEncryptServices, EncryptServices>();
+    services.AddScoped<ITokenServices, TokenServices>();
+    services.AddScoped<IRequestHandler<GetUsersQueryRequest, (Pagination, IEnumerable<User>)>, GetUsersQueryHandler>();
+    services.AddScoped<IRequestHandler<GetUserQueryRequest, User?>, GetUserQueryHandler>();
+    services.AddScoped<IRequestHandler<CreateUserCommandRequest, Guid>, CreateUserCommandHandler>();
+    services.AddScoped<IRequestHandler<UpdateUserCommandRequest, User>, UpdateUserCommandHandler>();
+    services.AddScoped<IRequestHandler<DeleteUserCommandRequest, bool>, DeleteUserCommandHandler>();
+
+    // Configure configuration
+    services.Configure<BearerTokenConfiguration>(configuration.GetSection("Bearer"));
+    services.Configure<PaginationConfiguration>(configuration.GetSection("Pagination"));
+
+    // Configure Json
+    services.AddControllers(options=> 
+            options.Filters.Add<ExceptionFilter>()
+        )
+        .AddNewtonsoftJson(options =>
+            options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+        );
+
+    // Configure Logger
+    services.AddLogging(options =>
+        {
+            options.ClearProviders();
+            options.SetMinimumLevel(LogLevel.Trace);
+            options.AddNLog();
+        }
+    );
+
+    // Configure MediatR
+    services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
+
+    // Configure AutoMapper
+    services.AddAutoMapper(typeof(MappingProfile).Assembly);
+
+}
