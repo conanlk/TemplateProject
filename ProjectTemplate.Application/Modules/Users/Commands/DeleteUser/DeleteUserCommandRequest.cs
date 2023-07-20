@@ -5,5 +5,5 @@ namespace ProjectTemplate.Application.Modules.Users.Commands.DeleteUser;
 
 public class DeleteUserCommandRequest: IRequest<bool>
 {
-    public User User { get; set; } = null;
+    public User User { get; set; } = default!;
 }

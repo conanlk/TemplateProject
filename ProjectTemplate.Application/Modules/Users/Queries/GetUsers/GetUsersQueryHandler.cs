@@ -1,6 +1,4 @@
 using MediatR;
-using Microsoft.Extensions.Options;
-using ProjectTemplate.Core.Configurations;
 using ProjectTemplate.Core.Types;
 using ProjectTemplate.Entities.Models;
 using ProjectTemplate.Entities.Repositories;
@@ -9,17 +7,15 @@ namespace ProjectTemplate.Application.Modules.Users.Queries.GetUsers;
 
 public class GetUsersQueryHandler : IRequestHandler<GetUsersQueryRequest, (Pagination, IEnumerable<User>)>
 {
-    private readonly IUserRepository _userRepository;
-    private readonly PaginationConfiguration _paginationConfiguration;
-    public GetUsersQueryHandler(IUserRepository userRepository,IOptions<PaginationConfiguration> paginationConfiguration)
+    private readonly IUserRepositoryQueries _userRepositoryQueries;
+    public GetUsersQueryHandler(IUserRepositoryQueries userRepositoryQueries)
     {
-        _userRepository = userRepository;
-        _paginationConfiguration = paginationConfiguration.Value;
+        _userRepositoryQueries = userRepositoryQueries;
     }
 
     public Task<(Pagination, IEnumerable<User>)> Handle(GetUsersQueryRequest queryRequest, CancellationToken cancellationToken)
     {
-        var users = _userRepository.GetAll();
+        var users = _userRepositoryQueries.GetAll();
         if (!string.IsNullOrWhiteSpace(queryRequest.Keywords))
         {
             users = users.Where(p => p.UserName.Contains(queryRequest.Keywords) 
@@ -31,8 +27,8 @@ public class GetUsersQueryHandler : IRequestHandler<GetUsersQueryRequest, (Pagin
 
         var pagination = new Pagination
         {
-            PageSize = queryRequest.PageSize <= 0 ? _paginationConfiguration.DefaultPageSize  : queryRequest.PageSize,
-            CurrentPage = queryRequest.CurrentPage <= 0 ? 1 : queryRequest.CurrentPage,
+            PageSize = queryRequest.PageSize ,
+            CurrentPage = queryRequest.CurrentPage,
             TotalCount = users.Count()
         };
         pagination.TotalPage = users.Count() / pagination.PageSize + 1;

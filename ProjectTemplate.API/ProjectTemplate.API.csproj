@@ -31,12 +31,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Content Include="..\.dockerignore">
-        <Link>.dockerignore</Link>
-      </Content>
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\ProjectTemplate.Application\ProjectTemplate.Application.csproj" />
       <ProjectReference Include="..\ProjectTemplate.Core\ProjectTemplate.Core.csproj" />
       <ProjectReference Include="..\ProjectTemplate.Database\ProjectTemplate.Database.csproj" />

@@ -6,15 +6,15 @@ namespace ProjectTemplate.Application.Modules.Users.Queries.GetUser;
 
 public class GetUserQueryHandler : IRequestHandler<GetUserQueryRequest, User?>
 {
-    private readonly IUserRepository _userRepository;
+    private readonly IUserRepositoryQueries _userRepositoryQueries;
 
-    public GetUserQueryHandler(IUserRepository userRepository)
+    public GetUserQueryHandler(IUserRepositoryQueries userRepositoryQueries)
     {
-        _userRepository = userRepository;
+        _userRepositoryQueries = userRepositoryQueries;
     }
     
     public async Task<User?> Handle(GetUserQueryRequest queryRequest, CancellationToken cancellationToken)
     {
-        return await _userRepository.GetById(queryRequest.UserId);
+        return await _userRepositoryQueries.GetById(queryRequest.UserId);
     }
 }

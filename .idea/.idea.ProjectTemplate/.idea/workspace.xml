@@ -14,20 +14,49 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c5d84c50-8041-4444-99fa-6c4ddde41c9e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ProjectTemplate.Core/Configurations/PaginationConfiguration.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProjectTemplate.Core/Types/Pagination.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectTemplate.Application/Modules/Users/Queries/GetUserByUserNameOrEmail/GetUserByUserNameOrEmailHandler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectTemplate.Application/Modules/Users/Queries/GetUserByUserNameOrEmail/GetUserByUserNameOrEmailQueryRequest.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectTemplate.Entities/Repositories/IRepositoryQueries.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectTemplate.Entities/Repositories/IUserRepositoryQueries.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectTemplate.InfraStructure/Contexts/CommandDbContext.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectTemplate.InfraStructure/Services/RepositoryQueries.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectTemplate.InfraStructure/Services/UserServiceCommands.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dockerignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectTemplate/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectTemplate/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectTemplate.API/Controllers/AuthenticationController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectTemplate.API/Controllers/AuthenticationController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectTemplate.API/Controllers/UserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectTemplate.API/Controllers/UserController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectTemplate.API/Models/User/SearchUserRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectTemplate.API/Models/User/SearchUserRequest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectTemplate.API/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectTemplate.API/Models/User/AddUserRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectTemplate.API/Models/User/AddUserRequest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectTemplate.API/Models/User/SearchUserResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectTemplate.API/Models/User/SearchUserResponse.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectTemplate.API/Models/User/UpdateUserRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectTemplate.API/Models/User/UpdateUserRequest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectTemplate.API/Models/User/UserResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectTemplate.API/Models/User/UserResponse.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectTemplate.API/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectTemplate.API/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectTemplate.API/Services/AuthorizeFunction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectTemplate.API/Services/AuthorizeFunction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectTemplate.API/ProjectTemplate.API.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectTemplate.API/ProjectTemplate.API.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectTemplate.API/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectTemplate.API/appsettings.Development.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectTemplate.API/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectTemplate.API/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectTemplate.Application/Modules/Authentication/AuthenticationServices.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectTemplate.Application/Modules/Authentication/AuthenticationServices.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectTemplate.Application/Modules/Users/Commands/CreateUser/CreateUserCommandHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectTemplate.Application/Modules/Users/Commands/CreateUser/CreateUserCommandHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectTemplate.Application/Modules/Users/Commands/CreateUser/CreateUserCommandRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectTemplate.Application/Modules/Users/Commands/CreateUser/CreateUserCommandRequest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectTemplate.Application/Modules/Users/Commands/DeleteUser/DeleteUserCommandHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectTemplate.Application/Modules/Users/Commands/DeleteUser/DeleteUserCommandHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectTemplate.Application/Modules/Users/Commands/DeleteUser/DeleteUserCommandRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectTemplate.Application/Modules/Users/Commands/DeleteUser/DeleteUserCommandRequest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectTemplate.Application/Modules/Users/Commands/UpdateUser/UpdateUserCommandHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectTemplate.Application/Modules/Users/Commands/UpdateUser/UpdateUserCommandHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectTemplate.Application/Modules/Users/Commands/UpdateUser/UpdateUserCommandRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectTemplate.Application/Modules/Users/Commands/UpdateUser/UpdateUserCommandRequest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectTemplate.Application/Modules/Users/Queries/GetUser/GetUserQueryHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectTemplate.Application/Modules/Users/Queries/GetUser/GetUserQueryHandler.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectTemplate.Application/Modules/Users/Queries/GetUsers/GetUsersQueryHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectTemplate.Application/Modules/Users/Queries/GetUsers/GetUsersQueryHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectTemplate.Application/Modules/Users/Queries/GetUsers/GetUsersQueryRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectTemplate.Application/Modules/Users/Queries/GetUsers/GetUsersQueryRequest.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectTemplate.Application/ProjectTemplate.Application.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectTemplate.Application/ProjectTemplate.Application.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectTemplate.Core/ProjectTemplate.Core.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectTemplate.Core/ProjectTemplate.Core.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectTemplate.Database/Models/Role.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectTemplate.Database/Models/Role.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectTemplate.Database/Models/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectTemplate.Database/Models/User.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectTemplate.Database/Models/UserRole.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectTemplate.Database/Models/UserRole.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectTemplate.Database/Program.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectTemplate.Database/ProjectTemplate.Database.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectTemplate.Database/ProjectTemplate.Database.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectTemplate.Database/appsettings.Development.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectTemplate.Database/appsettings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectTemplate.Entities/Models/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectTemplate.Entities/Models/User.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectTemplate.Entities/Models/UserRole.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectTemplate.Entities/Models/UserRole.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectTemplate.Entities/Repositories/IRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectTemplate.Entities/Repositories/IRepositoryCommands.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectTemplate.Entities/Repositories/IUserRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectTemplate.Entities/Repositories/IUserRepositoryCommands.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectTemplate.InfraStructure/Contexts/DefaultDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectTemplate.InfraStructure/Contexts/QueryDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectTemplate.InfraStructure/Services/Repository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectTemplate.InfraStructure/Services/RepositoryCommands.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectTemplate.InfraStructure/Services/UserServices.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectTemplate.InfraStructure/Services/UserServiceQueries.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,12 +73,10 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/19ba5a289f2afd3f4d5e862cb3f3efee6181683a31ee31b86c2298b1f51114b/ServiceProvider.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/6771d4a4cce39ed533223dc35ed9620b1989fcc3687851d2e401ac1aa69f6f8/SwaggerUIBuilderExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/6ac8edf478a421f37bfbac7a5db40497d336d1f6cb9fb12e57f8f3ab6c87/SHA256.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/709d621a809059a29bb7342e26263dcd3b33b461cb0f1542a4c84da8fee9ebe/WebApplication.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/85444b87515266794f71448c4f4bd6c1bde1cbd93fe1721b9221ae0dd4ebc93/ActionMethodExecutor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f1e3ac12df1cb7bf745685126a140ccc039d1ca066a080c1f2f619ecfc48f7/AsyncMethodBuilderCore.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f4bc324a395d24ed12db75b0a81536b642509aa14825bf114d9b7c934e2b/Mediator.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Volumes/DATA/Individual/ProjectTemplate/ProjectTemplate.API/Controllers/UserController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Volumes/DATA/Individual/ProjectTemplate/ProjectTemplate.API/Models/User/SearchUserRequest.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Volumes/DATA/Individual/ProjectTemplate/ProjectTemplate.Entities/Models/UserRole.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Projects/tom-1.0-in2food/src/In2FoodSchedule.Application/Exceptions/ApplicationException.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Projects/tom-1.0-in2food/src/In2FoodSchedule.Application/Services/ImportFileService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Projects/tom-1.0-in2food/src/In2FoodSchedule.Core/Configuration/In2FoodScheduleSettings.cs" root0="SKIP_HIGHLIGHTING" />
@@ -73,7 +100,7 @@
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="SWEA" />
   </component>
   <component name="ProjectId" id="2Rsfa1OrG2XFdFG1E0cF31QExxS" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -83,29 +110,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.environmentSetup",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;/Users/aunguyen/Library/Application Support/JetBrains/Rider2023.1/resharper-host/DecompilerCache&quot;,
-      &quot;/Users/aunguyen/Library/Application Support/JetBrains/Rider2023.1/resharper-host/SourcesCache&quot;,
-      &quot;/Users/aunguyen/.local/share/Symbols/src&quot;
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "C#"
+    ],
+    "rider.external.source.directories": [
+      "/Users/aunguyen/Library/Application Support/JetBrains/Rider2023.1/resharper-host/DecompilerCache",
+      "/Users/aunguyen/Library/Application Support/JetBrains/Rider2023.1/resharper-host/SourcesCache",
+      "/Users/aunguyen/.local/share/Symbols/src"
     ]
   }
-}</component>
+}]]></component>
   <component name="RiderProblemsViewState">
+    <option name="proportion" value="0.5783718" />
     <option name="showPreview" value="true" />
   </component>
   <component name="RunManager" selected=".NET Launch Settings Profile.ProjectTemplate.API: https">
@@ -253,7 +284,25 @@
       <workItem from="1688553835148" duration="5998000" />
       <workItem from="1688562445272" duration="2552000" />
       <workItem from="1688619469709" duration="37000" />
-      <workItem from="1688700555212" duration="9413000" />
+      <workItem from="1688700555212" duration="13917000" />
+      <workItem from="1688789733312" duration="74000" />
+      <workItem from="1688789818022" duration="1200000" />
+      <workItem from="1688791038647" duration="95000" />
+      <workItem from="1688791136630" duration="5614000" />
+      <workItem from="1688810016840" duration="4055000" />
+      <workItem from="1688879260276" duration="72000" />
+      <workItem from="1688977548059" duration="202000" />
+      <workItem from="1688977791027" duration="327000" />
+      <workItem from="1688979446183" duration="27000" />
+      <workItem from="1688980100063" duration="41000" />
+      <workItem from="1688984559618" duration="76000" />
+      <workItem from="1688985256512" duration="25000" />
+      <workItem from="1688985931363" duration="5000" />
+      <workItem from="1688987651217" duration="76000" />
+      <workItem from="1689254428997" duration="74000" />
+      <workItem from="1689254505289" duration="380000" />
+      <workItem from="1689254888931" duration="314000" />
+      <workItem from="1689256298959" duration="624000" />
     </task>
     <task id="LOCAL-00001" summary="First commit for Template Project">
       <option name="closed" value="true" />
@@ -303,7 +352,15 @@
       <option name="project" value="LOCAL" />
       <updated>1688564930154</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Commit 07/07/2023">
+      <option name="closed" value="true" />
+      <created>1688734831900</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1688734831900</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -352,6 +409,11 @@
     <MESSAGE value="Commit source code Project Template" />
     <MESSAGE value="Commit workspace.xml" />
     <MESSAGE value="Commit July 5, 2023" />
-    <option name="LAST_COMMIT_MESSAGE" value="Commit July 5, 2023" />
+    <MESSAGE value="Commit 07/07/2023" />
+    <option name="LAST_COMMIT_MESSAGE" value="Commit 07/07/2023" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

@@ -4,9 +4,9 @@ using ProjectTemplate.Entities.Models;
 
 namespace ProjectTemplate.InfraStructure.Contexts;
 
-public class DefaultDbContext : DbContext
+public class QueryDbContext : DbContext
 {
-    public DefaultDbContext(DbContextOptions<DefaultDbContext> options) : base(options)
+    public QueryDbContext(DbContextOptions<QueryDbContext> options) : base(options)
     {
         
     }

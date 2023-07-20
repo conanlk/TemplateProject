@@ -11,6 +11,5 @@ public class UpdateUserRequest
     [Required]
     public string Email { get; set; }= string.Empty;
     public string Phone { get; set; }= string.Empty;
-    [Required] 
-    public List<Guid> Roles { get; set; }
+    [Required] public List<Guid> Roles { get; set; } = default!;
 }

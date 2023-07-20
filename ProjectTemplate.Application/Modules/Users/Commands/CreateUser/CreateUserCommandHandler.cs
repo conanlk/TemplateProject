@@ -7,12 +7,12 @@ namespace ProjectTemplate.Application.Modules.Users.Commands.CreateUser;
 
 public class CreateUserCommandHandler : IRequestHandler<CreateUserCommandRequest, Guid>
 {
-    private readonly IUserRepository _userRepository;
+    private readonly IUserRepositoryCommands _userRepositoryCommands;
     private readonly IEncryptServices _encryptServices;
 
-    public CreateUserCommandHandler(IUserRepository userRepository, IEncryptServices encryptServices)
+    public CreateUserCommandHandler(IUserRepositoryCommands userRepositoryCommands, IEncryptServices encryptServices)
     {
-        _userRepository = userRepository;
+        _userRepositoryCommands = userRepositoryCommands;
         _encryptServices = encryptServices;
     }
     
@@ -38,7 +38,7 @@ public class CreateUserCommandHandler : IRequestHandler<CreateUserCommandRequest
             RoleId = p
         }).ToList();
         
-        await _userRepository.Add(user);
+        await _userRepositoryCommands.Add(user);
             
         return user.UserId;
     }

@@ -8,19 +8,19 @@ namespace ProjectTemplate.Application.Modules.Authentication;
 
 public class AuthenticationServices : IAuthenticationServices
 {
-    private readonly IUserRepository _userServices;
+    private readonly IUserRepositoryQueries _userRepositoryQueries;
     private readonly IEncryptServices _encryptServices;
     private readonly ITokenServices _tokenServices;
 
-    public AuthenticationServices(IUserRepository userServices, IEncryptServices encryptServices, ITokenServices tokenServices)
+    public AuthenticationServices(IUserRepositoryQueries userRepositoryQueries, IEncryptServices encryptServices, ITokenServices tokenServices)
     {
-        _userServices = userServices;
+        _userRepositoryQueries = userRepositoryQueries;
         _encryptServices = encryptServices;
         _tokenServices = tokenServices;
     }
     public async Task<User?> FindUser(string username)
     {
-        return await _userServices.GetUserByUsernameOrEmail(username);
+        return await _userRepositoryQueries.GetUserByUsernameOrEmail(username);
     }
 
     public async Task<bool> IsPasswordValid(User user, string password)

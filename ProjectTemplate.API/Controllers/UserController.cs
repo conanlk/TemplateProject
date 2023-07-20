@@ -2,6 +2,7 @@ using AutoMapper;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 using ProjectTemplate.API.Commons;
 using ProjectTemplate.API.Models.User;
 using ProjectTemplate.API.Services;
@@ -9,7 +10,9 @@ using ProjectTemplate.Application.Modules.Users.Commands.CreateUser;
 using ProjectTemplate.Application.Modules.Users.Commands.DeleteUser;
 using ProjectTemplate.Application.Modules.Users.Commands.UpdateUser;
 using ProjectTemplate.Application.Modules.Users.Queries.GetUser;
+using ProjectTemplate.Application.Modules.Users.Queries.GetUserByUserNameOrEmail;
 using ProjectTemplate.Application.Modules.Users.Queries.GetUsers;
+using ProjectTemplate.Core.Configurations;
 
 namespace ProjectTemplate.API.Controllers;
 
@@ -21,11 +24,13 @@ public class UserController : ApiControllerBase
 {
     private readonly IMediator _mediator;
     private readonly IMapper _mapper;
+    private readonly PaginationConfiguration _paginationConfiguration;
 
-    public UserController(IMediator mediator, IMapper mapper)
+    public UserController(IMediator mediator, IMapper mapper, IOptions<PaginationConfiguration> paginationConfiguration)
     {
         _mediator = mediator;
         _mapper = mapper;
+        _paginationConfiguration = paginationConfiguration.Value;
     }
     
     // GET List
@@ -37,8 +42,8 @@ public class UserController : ApiControllerBase
         var query = new GetUsersQueryRequest()
         {
             Keywords = keywords,
-            CurrentPage = page,
-            PageSize = pageSize,
+            CurrentPage = page <=0 ? 1 : page,
+            PageSize = pageSize <=0 ? _paginationConfiguration.DefaultPageSize : pageSize,
         };
         
         var result  = await _mediator.Send(query);
@@ -73,6 +78,18 @@ public class UserController : ApiControllerBase
     {
         if (!ModelState.IsValid) return BadRequest(ModelState);
         
+        var userByUserName = await _mediator.Send(new GetUserByUserNameOrEmailQueryRequest()
+        {
+            UserName   = request.UserName
+        });
+        
+        var userByEmail = await _mediator.Send(new GetUserByUserNameOrEmailQueryRequest()
+        {
+            UserName   = request.Email
+        });
+        
+        if (userByUserName != null || userByEmail !=null)  return BadRequest("Username or Email already exists!");
+
         var query =_mapper.Map<CreateUserCommandRequest>(request) ;
             
         return Ok(new{UserId = await _mediator.Send(query)});

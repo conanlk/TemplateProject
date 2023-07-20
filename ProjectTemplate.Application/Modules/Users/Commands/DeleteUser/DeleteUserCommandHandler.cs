@@ -6,15 +6,15 @@ namespace ProjectTemplate.Application.Modules.Users.Commands.DeleteUser;
 
 public class DeleteUserCommandHandler: IRequestHandler<DeleteUserCommandRequest, bool>
 {
-    private readonly IUserRepository _userRepository;
+    private readonly IUserRepositoryCommands _userRepositoryCommands;
 
-    public DeleteUserCommandHandler(IUserRepository userRepository)
+    public DeleteUserCommandHandler(IUserRepositoryCommands userRepositoryCommands)
     {
-        _userRepository = userRepository;
+        _userRepositoryCommands = userRepositoryCommands;
     }
     
     public async Task<bool> Handle(DeleteUserCommandRequest commandRequest, CancellationToken cancellationToken)
     {
-        return await _userRepository.Delete(commandRequest.User);
+        return await _userRepositoryCommands.Delete(commandRequest.User);
     }
 }

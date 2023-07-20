@@ -2,7 +2,7 @@ using ProjectTemplate.Entities.Models;
 
 namespace ProjectTemplate.Entities.Repositories;
 
-public interface IUserRepository : IRepository<User>
+public interface IUserRepositoryQueries: IRepositoryQueries<User>
 {
     Task<User?> GetUserByUsernameOrEmail(string username);
 }

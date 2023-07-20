@@ -15,6 +15,7 @@ using ProjectTemplate.Application.Modules.Users.Commands.CreateUser;
 using ProjectTemplate.Application.Modules.Users.Commands.DeleteUser;
 using ProjectTemplate.Application.Modules.Users.Commands.UpdateUser;
 using ProjectTemplate.Application.Modules.Users.Queries.GetUser;
+using ProjectTemplate.Application.Modules.Users.Queries.GetUserByUserNameOrEmail;
 using ProjectTemplate.Application.Modules.Users.Queries.GetUsers;
 using ProjectTemplate.Core.Configurations;
 using ProjectTemplate.Core.Types;
@@ -105,17 +106,23 @@ void Configuration(IServiceCollection services, ConfigurationManager configurati
         options.UseSqlServer(configuration.GetConnectionString("Default"), 
             x => x.MigrationsAssembly("ProjectTemplate.API")));
     
-    // Configure Application DbContext
-    services.AddDbContext<DefaultDbContext>(options =>
+    // Configure Application Queries DbContext
+    services.AddDbContext<QueryDbContext>(options =>
+        options.UseLazyLoadingProxies().UseSqlServer(configuration.GetConnectionString("Default")));
+    
+    // Configure Application Commands DbContext
+    services.AddDbContext<CommandDbContext>(options =>
         options.UseLazyLoadingProxies().UseSqlServer(configuration.GetConnectionString("Default")));
 
     // Configure services
-    services.AddScoped<IUserRepository, UserServices>();
+    services.AddScoped<IUserRepositoryCommands, UserServiceCommands>();
+    services.AddScoped<IUserRepositoryQueries, UserServiceQueries>();
     services.AddScoped<IAuthenticationServices, AuthenticationServices>();
     services.AddScoped<IEncryptServices, EncryptServices>();
     services.AddScoped<ITokenServices, TokenServices>();
     services.AddScoped<IRequestHandler<GetUsersQueryRequest, (Pagination, IEnumerable<User>)>, GetUsersQueryHandler>();
     services.AddScoped<IRequestHandler<GetUserQueryRequest, User?>, GetUserQueryHandler>();
+    services.AddScoped<IRequestHandler<GetUserByUserNameOrEmailQueryRequest, User?>, GetUserByUserNameOrEmailHandler>();
     services.AddScoped<IRequestHandler<CreateUserCommandRequest, Guid>, CreateUserCommandHandler>();
     services.AddScoped<IRequestHandler<UpdateUserCommandRequest, User>, UpdateUserCommandHandler>();
     services.AddScoped<IRequestHandler<DeleteUserCommandRequest, bool>, DeleteUserCommandHandler>();

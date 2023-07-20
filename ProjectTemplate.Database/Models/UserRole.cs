@@ -8,8 +8,8 @@ public class UserRole
 {
     [Key] 
     public Guid Id { get; set; }
+
+    [Required] public virtual User User { get; set; } = new User();
     [Required]
-    public virtual User User { get; set; }
-    [Required]
-    public virtual Role Role { get; set; }
+    public virtual Role Role { get; set; } = new Role();
 }

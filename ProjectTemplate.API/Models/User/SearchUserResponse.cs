@@ -10,5 +10,5 @@ public class SearchUserResponse
     public string Lastname { get; set; } = string.Empty;
     public string Email { get; set; } = string.Empty;
     public string Phone { get; set; } = string.Empty;
-    public virtual ICollection<Role> Roles { get; set; }
+    public virtual ICollection<Role> Roles { get; set; } = default!;
 }

@@ -6,16 +6,18 @@ namespace ProjectTemplate.Application.Modules.Users.Commands.UpdateUser;
 
 public class UpdateUserCommandHandler: IRequestHandler<UpdateUserCommandRequest, User>
 {
-    private readonly IUserRepository _userRepository;
+    private readonly IUserRepositoryCommands _userRepositoryCommands;
+    private readonly IUserRepositoryQueries _userRepositoryQueries;
 
-    public UpdateUserCommandHandler(IUserRepository userRepository)
+    public UpdateUserCommandHandler(IUserRepositoryCommands userRepositoryCommands, IUserRepositoryQueries userRepositoryQueries)
     {
-        _userRepository = userRepository;
+        _userRepositoryCommands = userRepositoryCommands;
+        _userRepositoryQueries = userRepositoryQueries;
     }
     
     public async Task<User> Handle(UpdateUserCommandRequest commandRequest, CancellationToken cancellationToken)
     {
-        var user = await _userRepository.GetById(commandRequest.UserId);
+        var user = await _userRepositoryQueries.GetById(commandRequest.UserId);
         user.FirstName = commandRequest.FirstName;
         user.LastName = commandRequest.LastName;
         user.Email = commandRequest.Email;
@@ -31,7 +33,7 @@ public class UpdateUserCommandHandler: IRequestHandler<UpdateUserCommandRequest,
             });
         }
         
-        await _userRepository.Update(user);
+        await _userRepositoryCommands.Update(user);
         return user;
     }
 }
