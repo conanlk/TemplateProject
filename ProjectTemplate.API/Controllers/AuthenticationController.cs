@@ -44,7 +44,6 @@ public class AuthenticationController : ApiControllerBase
         result.Token = token;
         return Ok(result);
     }
-
     
     [Route("super-admin")]
     [HttpPost]
