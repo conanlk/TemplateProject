@@ -395,6 +395,3 @@ FodyWeavers.xsd
 *.sln.iml
 .idea/
 
-# Migrations
-Migrations/
-
