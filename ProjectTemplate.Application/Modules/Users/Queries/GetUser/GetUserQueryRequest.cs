@@ -5,5 +5,5 @@ namespace ProjectTemplate.Application.Modules.Users.Queries.GetUser;
 
 public class GetUserQueryRequest : IRequest<User?>
 {
-    public Guid UserId { get; set; }
+    public Guid UserId { get; init; }
 }
