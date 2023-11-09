@@ -10,6 +10,7 @@ using NLog.Extensions.Logging;
 using ProjectTemplate.API.Services;
 using ProjectTemplate.Application.Modules.Authentication;
 using ProjectTemplate.Application.Modules.Encrypt;
+using ProjectTemplate.Application.Modules.EventBus;
 using ProjectTemplate.Application.Modules.Tokens;
 using ProjectTemplate.Application.Modules.Users.Commands.CreateUser;
 using ProjectTemplate.Application.Modules.Users.Commands.DeleteUser;
@@ -23,11 +24,14 @@ using ProjectTemplate.Entities.Models;
 using ProjectTemplate.Entities.Repositories;
 using ProjectTemplate.InfraStructure.Contexts;
 using ProjectTemplate.InfraStructure.Services;
+using RabbitMQ.Client;
+using RabbitMQ.Client.Events;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Configuration
 Configuration(builder.Services, builder.Configuration);
+ConfigureRabbitMQ();
 
 var app = builder.Build();  
 
@@ -120,6 +124,7 @@ void Configuration(IServiceCollection services, ConfigurationManager configurati
     services.AddScoped<IAuthenticationServices, AuthenticationServices>();
     services.AddScoped<IEncryptServices, EncryptServices>();
     services.AddScoped<ITokenServices, TokenServices>();
+    services.AddScoped<IEventBusPublisher, EventBusPublisher>();
     services.AddScoped<IRequestHandler<GetUsersQueryRequest, (Pagination, IEnumerable<User>)>, GetUsersQueryHandler>();
     services.AddScoped<IRequestHandler<GetUserQueryRequest, User?>, GetUserQueryHandler>();
     services.AddScoped<IRequestHandler<GetUserByUserNameOrEmailQueryRequest, User?>, GetUserByUserNameOrEmailHandler>();
@@ -154,4 +159,26 @@ void Configuration(IServiceCollection services, ConfigurationManager configurati
     // Configure AutoMapper
     services.AddAutoMapper(typeof(MappingProfile).Assembly);
 
+}
+
+void ConfigureRabbitMQ()
+{
+    var factory = new ConnectionFactory
+    {
+        HostName = "localhost"
+    };
+    var connection = factory.CreateConnection();
+    using var channel = connection.CreateModel();
+    channel.QueueDeclare("Hello", exclusive: false);
+    var consumer = new EventingBasicConsumer(channel);
+    consumer.Received += (model, eventArgs) =>
+    {
+        var body = eventArgs.Body.ToArray();
+        var message = Encoding.UTF8.GetString(body);
+        Console.WriteLine($"Message received: {message}");
+        channel.BasicReject(eventArgs.DeliveryTag, true);
+    };
+    channel.BasicConsume(queue: "Hello", autoAck: false, consumer: consumer);
+    Console.WriteLine($"Connected to RabbitMQ");
+    Console.ReadKey();
 }
