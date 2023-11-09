@@ -32,6 +32,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Configuration
 Configuration(builder.Services, builder.Configuration);
 
+// Configure receiver RabbitMQ
 var factory = new ConnectionFactory
 {
     HostName = "localhost"
