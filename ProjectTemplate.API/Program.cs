@@ -46,7 +46,7 @@ consumer.Received += (model, eventArgs) =>
     var body = eventArgs.Body.ToArray();
     var message = Encoding.UTF8.GetString(body);
     Console.WriteLine($"Message received: {message}");
-    channel.BasicReject(eventArgs.DeliveryTag, true);
+    channel.BasicReject(eventArgs.DeliveryTag, false);
 };
 channel.BasicConsume(queue: "Hello", autoAck: false, consumer: consumer);
 Console.WriteLine($"Connected to RabbitMQ");
